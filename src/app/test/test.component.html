@@ -1,0 +1,67 @@
+<div class="container">
+  <md-card class="demo-basic">
+    <md-toolbar class="valo">
+      <div style="width: 100%; align-items: center">
+        <span class="headline">Device</span>
+        <button md-button class="pull-right" (click)="active[0] = !active[0]"><i class="fa fa-minus" aria-hidden="true" *ngIf="active[0]"></i><i class="fa fa-plus" aria-hidden="true" *ngIf="!active[0]"></i></button>
+      </div>
+    </md-toolbar>
+    <md-toolbar class="valo-error" *ngIf="message != ''">Error: {{message}}</md-toolbar>
+
+    <md-card-content *ngIf="active[0]">
+      <p>Note: The device must support cross-origin requests for this application!</p>
+      <div class="row">
+        <md-input placeholder="IP-address" class="col-lg-12" [(ngModel)]="device.ip">
+          <span md-prefix>https://</span>
+        </md-input>
+      </div>
+      <div class="row">
+        <md-input placeholder="Access key" class="col-lg-12" [(ngModel)]="device.key"></md-input>
+      </div>
+    </md-card-content>
+  </md-card>
+
+  <br>
+
+  <md-card class="demo-basic">
+    <md-toolbar class="valo" (click)="active[1] = !active[1]">
+      <div style="width: 100%; align-items: center">
+        <span class="headline">POST /registerClient</span>
+        <button md-button class="pull-right"><i class="fa fa-minus" aria-hidden="true" *ngIf="active[1]"></i><i class="fa fa-plus" aria-hidden="true" *ngIf="!active[1]"></i></button>
+      </div>
+    </md-toolbar>
+
+    <md-card-content *ngIf="active[1]">
+      <div class="row">
+        <md-input placeholder="Client-ID" class="col-lg-12" [(ngModel)]="registrationRequest.clientId"></md-input>
+      </div>
+      <div class="row">
+        <button md-raised-button class="valo-button" (click)="ngOnRegistrationClick()">REQUEST</button>
+        <!--<button md-raised-button color="warn" (click)="ngOnRegistrationClickError()">REQUEST WITH ERROR</button>-->
+      </div>
+      <div *ngIf="registrationResponse.controllerType != ''" style="margin-top: 10px">
+        <div class="row">
+          <md-input placeholder="Type of device" class="col-lg-12" disabled [(ngModel)]="registrationResponse.controllerType"></md-input>
+        </div>
+        <div class="row">
+          <md-input placeholder="Available channel" class="col-lg-12" disabled [(ngModel)]="registrationResponse.availableChannel"></md-input>
+        </div>
+      </div>
+    </md-card-content>
+  </md-card>
+
+  <br>
+
+  <md-card class="demo-basic">
+    <md-toolbar class="valo" (click)="active[2] = !active[2]">
+      <div style="width: 100%; align-items: center">
+        <span class="headline">Channel</span>
+        <button md-button class="pull-right"><i class="fa fa-minus" aria-hidden="true" *ngIf="active[2]"></i><i class="fa fa-plus" aria-hidden="true" *ngIf="!active[2]"></i></button>
+      </div>
+    </md-toolbar>
+
+    <md-card-content  *ngIf="active[2]">
+
+    </md-card-content>
+  </md-card>
+</div>

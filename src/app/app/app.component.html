@@ -1,0 +1,35 @@
+<div class="container">
+  <md-card class="demo-basic">
+    <md-toolbar class="valo">
+      <div style="width: 100%; align-items: center">
+        <span class="headline"><i class="fa fa-android" aria-hidden="true"></i> Android</span>
+
+        <a md-button
+           href="https://tc.valoplus.de/repository/download/LedHub_AndroidApp/.lastSuccessful/app/app-debug.apk"
+           class="pull-right"><i class="fa fa-download" aria-hidden="true"></i> Download</a>
+
+      </div>
+
+    </md-toolbar>
+    <md-card-content style="max-height: 400px; overflow: scroll;">
+      <md-card-title>Last Changes</md-card-title>
+      <div style="margin: -16px;">
+        <md-list class="" *ngFor="let build of builds">
+          <md-divider></md-divider>
+          <md-list-item>
+            <h3 md-line>{{build.date | date:'medium'}}</h3>
+            <p md-line *ngFor="let line of build.content">- {{line}}</p>
+
+          </md-list-item>
+        </md-list>
+      </div>
+    </md-card-content>
+  </md-card>
+  <br>
+  <md-card class="demo-basic">
+    <md-toolbar class="valo">iOS</md-toolbar>
+    <md-card-content>
+      <h3>In development...</h3>
+    </md-card-content>
+  </md-card>
+</div>

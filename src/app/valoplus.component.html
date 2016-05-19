@@ -1,0 +1,20 @@
+<div class="top">
+  <md-toolbar class="valo">
+    <nav style="align-items: center;width: 100%">
+      <a md-fab [routerLink]="'/home'"  style="background-color: white;">
+        <md-icon><img src="/img/logo.png"></md-icon>
+      </a>
+
+      <a md-button [routerLink]="'/home'" style="margin-left: 60px;">Home</a>
+      <a md-button [routerLink]="'/app'">Apps</a>
+      <a md-button [routerLink]="'/doku'">Dokumentation</a>
+      <a md-button [routerLink]="'/test'">TestSuite</a>
+
+      <a md-button href="https://github.com/ValoPlus/ValoPlus" class="pull-right" style="margin: 0.7rem;"><i
+        class="fa fa-github fa-2x" aria-hidden="true" style="margin-top: 0.5rem;"></i></a>
+    </nav>
+  </md-toolbar>
+</div>
+<div class="max">
+  <router-outlet></router-outlet>
+</div>
