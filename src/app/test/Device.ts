@@ -8,6 +8,6 @@ export class Device {
   }
 
   public getAdress():String {
-    return 'https://' + this.ip;
+    return 'http://' + this.ip;
   }
 }

@@ -15,7 +15,7 @@ import {TestComponent} from "./test/test.component";
   providers: [ROUTER_PROVIDERS]
 })
 @Routes([
-  new Route({path: '/app', component: AppComponent}),
+  new Route({path: '/apps', component: AppComponent}),
   new Route({path: '/home', component: HomeComponent}),
   new Route({path: '/doku', component: DokuComponent}),
   new Route({path: '/test', component: TestComponent}),
