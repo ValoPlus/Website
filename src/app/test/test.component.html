@@ -3,7 +3,8 @@
     <md-toolbar class="valo">
       <div style="width: 100%; align-items: center">
         <span class="headline">Device</span>
-        <button md-button class="pull-right" (click)="active[0] = !active[0]"><i class="fa fa-minus" aria-hidden="true" *ngIf="active[0]"></i><i class="fa fa-plus" aria-hidden="true" *ngIf="!active[0]"></i></button>
+        <button md-button class="pull-right" (click)="active[0] = !active[0]"><i class="fa fa-minus" aria-hidden="true" *ngIf="active[0]"></i><i class="fa fa-plus" aria-hidden="true"
+                                                                                                                                                 *ngIf="!active[0]"></i></button>
       </div>
     </md-toolbar>
     <md-toolbar class="valo-error" *ngIf="message != ''">Error: {{message}}</md-toolbar>
@@ -26,7 +27,7 @@
   <md-card class="demo-basic">
     <md-toolbar class="valo" (click)="active[1] = !active[1]">
       <div style="width: 100%; align-items: center">
-        <span class="headline">POST /registerClient</span>
+        <span class="headline">POST /api/registerClient</span>
         <button md-button class="pull-right"><i class="fa fa-minus" aria-hidden="true" *ngIf="active[1]"></i><i class="fa fa-plus" aria-hidden="true" *ngIf="!active[1]"></i></button>
       </div>
     </md-toolbar>
@@ -55,13 +56,37 @@
   <md-card class="demo-basic">
     <md-toolbar class="valo" (click)="active[2] = !active[2]">
       <div style="width: 100%; align-items: center">
-        <span class="headline">Channel</span>
+        <span class="headline">POST /api/settings</span>
         <button md-button class="pull-right"><i class="fa fa-minus" aria-hidden="true" *ngIf="active[2]"></i><i class="fa fa-plus" aria-hidden="true" *ngIf="!active[2]"></i></button>
       </div>
     </md-toolbar>
 
-    <md-card-content  *ngIf="active[2]">
-
+    <md-card-content *ngIf="active[2]">
+      <div class="row">
+        <md-input placeholder="Password" class="col-lg-12" [(ngModel)]="wlanRequest.pass"></md-input>
+      </div>
+      <div class="row">
+        <md-input placeholder="SSID" class="col-lg-12" [(ngModel)]="wlanRequest.ssid"></md-input>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <label>Security:</label>
+          <md-radio-group [(ngModel)]="wlanRequest.wlanSecurity">
+            <md-radio-button value="WPA">WPA</md-radio-button>
+            <md-radio-button value="WPA2">WPA2</md-radio-button>
+            <md-radio-button value="NONE">no</md-radio-button>
+          </md-radio-group>
+        </div>
+      </div>
+      <div class="row">
+        <button md-raised-button class="valo-button" (click)="ngOnWlanClick()">REQUEST</button>
+        <!--<button md-raised-button color="warn" (click)="ngOnRegistrationClickError()">REQUEST WITH ERROR</button>-->
+      </div>
+      <div *ngIf="wlanResponse != ''" style="margin-top: 10px">
+        <div class="row">
+          <md-input placeholder="Response" class="col-lg-12" disabled [(ngModel)]="wlanResponse"></md-input>
+        </div>
+      </div>
     </md-card-content>
   </md-card>
 </div>

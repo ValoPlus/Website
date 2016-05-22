@@ -3,7 +3,7 @@
  */
 
 export class Device {
-  constructor(public ip:String = 'test.valoplus.de:9000',
+  constructor(public ip:String = 'test.valoplus.de',
               public key:String = '123456789abc') {
   }
 

@@ -9,24 +9,29 @@ import {Device} from "./Device";
 import {RegistrationRequest, RegistrationResponse} from "./Registration";
 import {HTTP_PROVIDERS} from "@angular/http";
 import {TestService} from "./test.service";
+import {Wlan} from "./Wlan";
+import {MdRadioButton, MdRadioGroup} from "@angular2-material/radio/radio";
+import {MdRadioDispatcher} from "@angular2-material/radio/radio_dispatcher";
 /**
  * Created by tom on 16.05.16.
  */
 
 @Component({
   templateUrl: 'app/test/test.component.html',
-  directives: [MdCard, MdCheckbox, MdButton, MdToolbar, MD_LIST_DIRECTIVES, MD_INPUT_DIRECTIVES, MD_CARD_DIRECTIVES],
-  providers: [TestService, HTTP_PROVIDERS]
+  directives: [MdCard, MdCheckbox, MdButton, MdToolbar, MD_LIST_DIRECTIVES, MD_INPUT_DIRECTIVES, MD_CARD_DIRECTIVES, MdRadioButton, MdRadioGroup],
+  providers: [TestService, HTTP_PROVIDERS, MdRadioDispatcher]
 })
 export class TestComponent implements OnInit {
   private message = '';
 
-  private active:boolean[] = [true, true, false];
+  private active:boolean[] = [true, false, false];
 
   private device:Device;
   private registrationRequest:RegistrationRequest;
-
   private registrationResponse:RegistrationResponse;
+
+  private wlanRequest:Wlan;
+  private wlanResponse:String;
 
   constructor(private testService:TestService) {
   }
@@ -34,8 +39,10 @@ export class TestComponent implements OnInit {
   ngOnInit() {
     this.device = new Device();
     this.registrationRequest = new RegistrationRequest();
-
     this.registrationResponse = new RegistrationResponse();
+
+    this.wlanRequest = new Wlan('', '', 'WPA');
+    this.wlanResponse = '';
   }
 
   ngOnRegistrationClick() {
@@ -43,6 +50,16 @@ export class TestComponent implements OnInit {
     this.testService.requestRegistration(this.registrationRequest, this.device.getAdress()).subscribe(
       result => {
         this.registrationResponse = result;
+        this.message = '';
+      },
+      error => this.message = error
+    )
+  }
+
+  ngOnWlanClick() {
+    this.testService.requestWlan(this.wlanRequest, this.device.getAdress()).subscribe(
+      result => {
+        this.wlanResponse = result;
         this.message = '';
       },
       error => this.message = error
