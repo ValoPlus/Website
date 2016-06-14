@@ -15,7 +15,7 @@ export class AppServcie {
   }
 
   private headers = new Headers({'Accept': 'application/json'});
-  private buildsUrl = 'https://tc.valoplus.de/guestAuth/app/rest/builds?locator=buildType:LedHub_AndroidApp';
+  private buildsUrl = 'https://tc.valoplus.de/guestAuth/app/rest/builds?locator=buildType:Android_Build';
   private buildUrl = 'https://tc.valoplus.de/guestAuth/app/rest/changes?build=id:';
   private ChangeUrl = 'https://tc.valoplus.de/guestAuth/app/rest/changes/id:';
 
