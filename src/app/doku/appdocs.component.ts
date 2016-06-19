@@ -4,7 +4,7 @@ import {Component} from "@angular/core";
  */
 
 @Component({
-  template: '<div class="container-fluid" style="margin-top: -4rem; padding: 0px; height: 100%;"><iframe' +
+  template: '<div class="container-fluid" style="margin-top: -2.5rem; padding: 0px; height: 100%;"><iframe' +
   ' src="https://tc.valoplus.de/repository/download/Android_Build/.lastSuccessful/docs/index.html"></iframe></div>'
 })
 export class AppDokuComponent {
