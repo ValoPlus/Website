@@ -7,6 +7,7 @@ import {HomeComponent} from "./home/home.component";
 import {DokuComponent} from "./doku/doku.component";
 import {AppComponent} from "./app/app.component";
 import {TestComponent} from "./test/test.component";
+import { AppDokuComponent } from './doku/appdocs.component';
 
 @Component({
   selector: 'valoplus-app',
@@ -18,6 +19,7 @@ import {TestComponent} from "./test/test.component";
   new Route({path: '/apps', component: AppComponent}),
   new Route({path: '/home', component: HomeComponent}),
   new Route({path: '/doku', component: DokuComponent}),
+  new Route({path: '/appdoku', component: AppDokuComponent}),
   new Route({path: '/test', component: TestComponent}),
 ])
 export class ValoplusAppComponent {
